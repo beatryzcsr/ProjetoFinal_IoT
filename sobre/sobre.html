@@ -9,15 +9,18 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../contato/contato.html">Contato</a></li>
-                <li><a href="./sobre.html">Sobre</a></li>
-            </ul>
-        </nav>
-    </header>
+         <header class="topbar">
+            <div class="brand" aria-label="Logo MeteoMind">
+                <img class="brand-mark" src="../assets/LogoMeteoMind.png" alt="Logo MeteoMind" />
+            </div>
+
+            <nav class="main-nav" aria-label="Menu principal">
+                <a href="../home/index.html">Home</a>
+                <a href="../sobre/sobre.html" class="active">Sobre</a>
+                <a href="../dashboard/dash.html">Dashboard</a>
+            </nav>
+        </header>
+
 
     <main>
         <article class= "top"> 
@@ -39,7 +42,7 @@
 
                 <section class="github">
                      <a href="https://github.com/beatryzcsr/ProjetoFinal_IoT" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-    <i class="fa-brands fa-github" style="color: rgb(70, 34, 34); font-size: 40px;"></i>
+    <i class="fa-brands fa-github" style="color: rgb(255, 250, 250); font-size: 40px;"></i>
 </a>
                     <p> O código-fonte do projeto está disponível no nosso repositório do GitHub. Sinta-se à vontade para contribuir e sugerir melhorias!</p>
                 </section>
@@ -49,68 +52,80 @@
         <article class="content2">
             <div class="all">
                 <h2>FERRAMENTAS</h2>
-                <section class="softwares">
-                    <h2>Softwares</h2>
-                    <ul>
-                        <li>
-                            <img src="../assets/arduino.png" alt="Arduino IDE" width="100" height="100">
-                            <p>Arduino IDE</p>
-                        </li>
-                        <li>
-                            <img src="../assets/mosquitto.png" alt="Mosquitto" width="100" height="100">
-                            <p>Mosquitto</p>
-                        </li>
-                        <li>
-                            <img src="../assets/vscode.png" alt="Visual Studio Code" width="100" height="100">
-                            <p>Visual Studio Code</p>
-                        </li>
-                        <li>
-                            <img src="../assets/figma.png" alt="Figma" width="100" height="100">
-                            <p>Figma</p>
-                        </li>
-                    </ul>
+                <div class="ferramentas-grid">
+                    <section class="softwares">
+                        <h3>Softwares</h3>
+                        <ul>
+                            <li>
+                                <img src="../assets/arduino.png" alt="Arduino IDE" width="100" height="100">
+                                <p>Arduino IDE</p>
+                            </li>
+                            <li>
+                                <img src="../assets/mosquitto.png" alt="Mosquitto" width="100" height="100">
+                                <p>Mosquitto</p>
+                            </li>
+                            <li>
+                                <img src="../assets/vscode.png" alt="Visual Studio Code" width="100" height="100">
+                                <p>Visual Studio Code</p>
+                            </li>
+                            <li>
+                                <img src="../assets/figma.png" alt="Figma" width="100" height="100">
+                                <p>Figma</p>
+                            </li>
+                        </ul>
+                    </section>
 
                     <section class="softwares">
-                    <h2>Hardwares</h2>
-                    <ul>
-                        <li>
-                            <img src="../assets/esp32.png" alt="ESP32" width="100" height="100">
-                            <p>ESP32</p>
-                        </li>
-                        <li>
-                            <img src="../assets/sensor1.png" alt="Sensor DHT11" width="100" height="100">
-                            <p>Sensor DHT11</p>
-                        </li>
-                        <li>
-                            <img src="../assets/sensor2.png" alt="Sensor DHT22" width="100" height="100">
-                            <p>Sensor MQ-135</p>
-                        </li>
-                        <li>
-                            <img src="../assets/led.png" alt="LED" width="100" height="100">
-                            <p>LEDS</p>
-                        </li>
-                    </ul>
-                </section>
+                        <h3>Hardwares</h3>
+                        <ul>
+                            <li>
+                                <img src="../assets/esp32.png" alt="ESP32" width="100" height="100">
+                                <p>ESP32</p>
+                            </li>
+                            <li>
+                                <img src="../assets/sensor1.png" alt="Sensor DHT11" width="100" height="100">
+                                <p>Sensor DHT11</p>
+                            </li>
+                            <li>
+                                <img src="../assets/sensor2.png" alt="Sensor DHT22" width="100" height="100">
+                                <p>Sensor MQ-135</p>
+                            </li>
+                            <li>
+                                <img src="../assets/led.png" alt="LED" width="100" height="100">
+                                <p>LEDS</p>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </article>
 
-                <section class="fotos">
+                <article class="fotos">
                     <h2>GALERIA DE FOTOS</h2>
                     <ul>
                         <li>
-                            <img src="../assets/foto1.jpg" alt="Foto 1" width="200" height="150">
-                            <p> tal coisa</p>
+                            <img src="../assets/foto1.png" alt="Foto 1" width="200" height="150">
+                            <p>Aula 1- Uso de LEDS</p>
                         </li>
                         <li>
-                            <img src="../assets/foto2.jpg" alt="Foto 2" width="200" height="150">
-                            <p> tal coisa</p>
+                            <img src="../assets/foto2.png" alt="Foto 2" width="200" height="150">
+                            <p>Programação da estação meteorológica</p>
                         </li>
                         <li>
-                            <img src="../assets/foto3.jpg" alt="Foto 3" width="200" height="150">
-                            <p> tal coisa</p>
+                            <img src="../assets/foto3.png" alt="Foto 3" width="200" height="150">
+                            <p>Circuito da estação meteorológica</p>
                         </li>
-                </section>
-            </div>
-        </article>
-           
+                    </ul>
+                </article>
+            
     </main>
+
+        <footer class="site-footer">
+            <div class="footer-brand">MeteoMind</div>
+            <div class="footer-divider"></div>
+            <div class="footer-divider"></div>
+            <div class="footer-copy">© 2026 MeteoMind Meteorologia. Todos os direitos reservados.</div>
+        </footer>
+
 </body>
 </html>
