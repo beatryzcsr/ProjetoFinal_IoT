@@ -1,0 +1,315 @@
+:root {
+  --bg-black: #030303;
+  --purple-1: #d76dff;
+  --purple-2: #b856ff;
+  --purple-3: #8a49d8;
+  --purple-4: #c763ff;
+  --line-soft: rgba(255, 255, 255, 0.24);
+  --text-soft: #f1d9ff;
+  --text-link: #f5ebff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-black);
+  color: var(--text-soft);
+  font-family: "Inter", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.8rem 3.2rem 0.9rem;
+  background: linear-gradient(90deg, #b75fff 0%, #c46af7 100%);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.brand-mark {
+  display: block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.main-nav a {
+  position: relative;
+  color: var(--text-link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.main-nav a.active {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.main-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.45rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+.page-content {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.75rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-logo {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-ring {
+  position: relative;
+  width: 290px;
+  height: 290px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+}
+
+.logo-ring::before {
+  display: none;
+}
+
+.logo-ring img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 18px rgba(199, 128, 255, 0.35));
+}
+
+.logo-spark,
+.logo-visor,
+.logo-core,
+.logo-label {
+  display: none;
+}
+
+.title-wrap {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.title-wrap h1 {
+  margin: 0;
+  font-family: "Jersey 10", sans-serif;
+  font-size: clamp(4rem, 7vw, 8rem);
+  line-height: 0.9;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #f0d3ff;
+  text-shadow: 0 0 12px rgba(198, 112, 255, 0.8), 0 0 24px rgba(198, 112, 255, 0.45);
+}
+
+.title-wrap p {
+  margin: 0.2rem 0 0;
+  font-family: "Jersey 10", sans-serif;
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  color: #f0d3ff;
+  letter-spacing: 0.04em;
+}
+
+.divider {
+  width: min(100%);
+  height: 1px;
+  background: rgb(255, 255, 255);
+  margin: 2.5rem auto 2.2rem;
+}
+
+.team-section {
+  width: min(100%, 900px);
+  text-align: center;
+}
+
+.team-section h2 {
+  margin: 0 0 2rem;
+  font-family: "Jersey 10", sans-serif;
+  font-size: clamp(2.3rem, 3.5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #d986ff;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+}
+
+.person-card {
+  width: 150px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.person-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgb(255, 255, 255);
+  box-shadow: 0 0 18px rgba(206, 108, 255, 0.22);
+}
+
+.person-card figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.08rem;
+  color: #f4d7ff;
+  font-size: 0.9rem;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.site-footer {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 2.2rem;
+  background: linear-gradient(90deg, #c76cff 0%, #c356ff 100%);
+  color: #fff;
+}
+
+.footer-brand {
+  font-family: "Jersey 10", sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  margin-left: 0.8rem;
+}
+
+.footer-divider {
+  width: 2px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.7);
+  margin: 0 1rem;
+}
+
+.footer-copy {
+  margin-left: auto;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    padding: 0.7rem 1rem 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    min-width: auto;
+  }
+
+  .brand-mark {
+    width: 72px;
+    height: 72px;
+    font-size: 0.62rem;
+  }
+
+  .main-nav {
+    width: 100%;
+    gap: 1.3rem;
+    padding-right: 0;
+    justify-content: space-between;
+  }
+
+  .main-nav a {
+    font-size: 0.92rem;
+  }
+
+  .logo-ring {
+    width: 190px;
+    height: 190px;
+  }
+
+  .logo-label {
+    font-size: 2.4rem;
+  }
+
+  .site-footer {
+    padding: 1rem 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  .footer-copy {
+    margin-left: 0;
+    text-align: center;
+  }
+}
