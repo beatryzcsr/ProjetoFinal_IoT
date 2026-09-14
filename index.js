@@ -1,5 +1,5 @@
 // IP do notebook onde o Mosquitto está rodando
-const MQTT_HOST = "192.168.56.1"; 
+const MQTT_HOST = "10.0.0.138"; 
 
 // Porta do MOsquitto
 const MQTT_PORT = 9001;
