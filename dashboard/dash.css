@@ -93,11 +93,17 @@
 
     .card {
       background: var(--purple-3);
-      border-radius: 8px;
+      border-radius: 12px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      padding: 20px;
-      width: 200px;
+      padding: 18px 18px 20px;
+      width: 240px;
+      min-height: 230px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
     }
 
     .card-purple {
@@ -105,29 +111,58 @@
     }
 
     .card h3 {
-      margin-top: 0;
+      margin: 0 0 0.8rem;
       color: var(--purple-4);
+      font-family: "Jersey 10", sans-serif;
+      font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-align: center;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .card .img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60px;
+      width: 100%;
+    }
+
+    .card .img img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
     }
 
     .card .value {
       display: flex;
       align-items: baseline;
       justify-content: center;
-      gap: 0.2rem;
-      font-size: 2.2em;
-      font-weight: bold;
+      gap: 0.15rem;
+      font-family: "Jersey 10", sans-serif;
+      font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+      font-weight: 400;
       color: #007bff;
-      line-height: 1.1;
+      line-height: 1;
+      letter-spacing: 0.04em;
       text-align: center;
-      min-height: 2.4em;
+      margin-top: 0.7rem;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
     .card .unit {
-      font-size: 0.5em;
+      font-size: 0.52em;
       color: var(--text-dark);
       line-height: 1;
       display: inline-block;
-      transform: translateY(-0.15em);
+      transform: translateY(-0.18em);
+      white-space: nowrap;
     }
 
     .topbar {
