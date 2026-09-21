@@ -1,7 +1,7 @@
 // IP do notebook onde o Mosquitto está rodando
 const MQTT_HOST = "192.168.3.73"; 
 
-// Porta do MOsquitto
+// Porta do Mosquitto
 const MQTT_PORT = 9001;
 
 // Tópicos publicados pelo ESP32
@@ -32,60 +32,89 @@ client.connect({
     onFailure: onFailure
 });
 
-// Conectado
+// Broker conectado
 function onConnect() {
+    // Navegador conectado ao Mosquitto
     brokerConnected = true;
+    // Não se sabe se o ESP32 está enviando dados
     deviceConnected = false;
+    // Zera o horário da última mensagem
     lastDeviceMessageAt = 0;
+    // Para um temporizador anterior, caso exista
     clearInterval(deviceStatusInterval);
+    // A cada 1 segundo, verifica se o ESP32 continua enviando dados
     deviceStatusInterval = setInterval(checkDeviceStatus, 1000);
+    // O protótipo ainda não foi confirmado como conectado
     updateStatus("Status: Protótipo desconectado", "disconnected");
 
-    // Assina os tópicos publicados pelo ESP32 após conectar com sucesso 
+    // Assina os tópicos publicados pelo ESP32 após conectar
     client.subscribe(TOPIC_TEMP);
     client.subscribe(TOPIC_HUM);
     client.subscribe(TOPIC_AIR);
 }
 
+// Falha
 function onFailure(responseObject) {
+    // Mosquitto não está conectado
     brokerConnected = false;
+    // Protótipo também não é considerado conectado
     deviceConnected = false;
+    // Mostra o erro na tela
     updateStatus("Status: Mosquitto desconectado (" + responseObject.errorMessage + ")", "disconnected");
 }
 
+// Perda de conexão
 function onConnectionLost(responseObject) {
+    // O navegador perdeu a conexão com o Mosquitto
     brokerConnected = false;
+    // O protótipo também deixa de ser considerado conectado
     deviceConnected = false;
+    // Para a verificação automática do status
     clearInterval(deviceStatusInterval);
+    // Atualiza o status na tela
     updateStatus("Status: Mosquitto desconectado", "disconnected");
 }
 
+// Atualiza o status
 function updateStatus(text, className) {
+    // Procura no HTML o id="status"
     const statusDiv = document.getElementById("status");
 
+    // Verifica se o elemento existe
     if (statusDiv) {
+        // Muda o texto da tela
         statusDiv.innerText = text;
+        // Muda o CSS
         statusDiv.className = "status " + className;
     }
 }
 
+// Protótipo conectado
 function markDeviceAsConnected() {
+    // Guarda o horário em que a mensagem é recebida
     lastDeviceMessageAt = Date.now();
+    // Confirma que o ESP32 está enviando dados
     deviceConnected = true;
+    // Mostra que o protótipo está conectado
     updateStatus("Status: Protótipo conectado", "connected");
 }
 
+// ESP32 enviando dados
 function checkDeviceStatus() {
+    // Vê se uma mensagem foi recebida ou se fazem mais de 10 segundos que a última mensagem chegou
     const deviceTimedOut = lastDeviceMessageAt === 0 ||
         Date.now() - lastDeviceMessageAt > DEVICE_TIMEOUT_MS;
 
+    // Se está tudo conectado, mas as mensagen pararam de ser enviadas
     if (brokerConnected && deviceConnected && deviceTimedOut) {
+        // Protótipo considerado desconectado
         deviceConnected = false;
+        // Atualiza na tela
         updateStatus("Status: Protótipo desconectado", "disconnected");
     }
 }
 
-// Processa as mensagens recebidas nos tópicos assinados
+// Verifica se as mensagens foram recebidas dos tópicos
 function onMessageArrived(message) {
     if (message.destinationName !== TOPIC_TEMP &&
         message.destinationName !== TOPIC_HUM &&
@@ -93,6 +122,7 @@ function onMessageArrived(message) {
         return;
     }
 
+    // ESP32 manda, logo conectado
     markDeviceAsConnected();
 
     // Identifica em qual tópico a mensagem chegou
