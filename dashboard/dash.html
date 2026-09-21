@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Define a codificação dos caracteres. Sem ele caracteres como ã, õ, seriam quebrados -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Faz a largura da página acompanhar a largura da tela.  -->
+    <title>MeteoMind | Dashboard</title>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
     <script defer src="../index.js" type="text/javascript"></script>
       
@@ -14,10 +16,11 @@
 </head>
 <body>
       <header class="topbar">
+        <!-- Cria o cabeçalho da página. -->
       <div class="brand" aria-label="Logo MeteoMind">
         <img class="brand-mark" src="../assets/LogoMeteoMind.png" alt="Logo MeteoMind" />
       </div>
-
+      <!-- navegação -->
       <nav class="main-nav" aria-label="Menu principal">
         <a href="../home/index.html">Home</a>
         <a href="../sobre/sobre.html">Sobre</a>
@@ -26,15 +29,19 @@
     </header>
 
       <h1>Monitoramento IoT em <span class="card-purple">Tempo Real</span></h1>
+      <!-- Cria o título principal. -->
   <div id="status" class="status disconnected">Status: Desconectado</div>
+  <!-- Cria uma área mostrando o estado da conexão. -->
 
   <div class="cards-container">
+    <!-- Cria um recipiente para os três cards. -->
     <div class="card">
       <h3>Temperatura</h3>
       <div class="img">
         <img src="../assets/telm.png" alt="">
       </div>
       <div class="value"><span id="temp">--</span> <span class="unit">°C</span></div>
+      <!-- Pega os dados do javascript -->
     </div>
 
     <div class="card">
@@ -55,8 +62,8 @@
   </div>
 
     <h3>Projeto IOT SESI SENAI Vinhedo <span class="card-purple">Grupo 03</span></h3>
-
-    <footer class="site-footer">
+    <!-- Identificação do projeto -->
+     
       <div class="footer-brand">MeteoMind</div>
       <div class="footer-divider"></div>
       <div class="footer-divider"></div>
