@@ -8,9 +8,14 @@ const MQTT_PORT = 9001;
 const TOPIC_TEMP = "aulas/professortupi/temperatura";
 const TOPIC_HUM  = "aulas/professortupi/umidade";
 const TOPIC_AIR  = "aulas/professortupi/qualidade_ar";
+const DEVICE_TIMEOUT_MS = 10000;
 
 // ID de cliente único para o navegador
 const clientID = "WebDash_" + Math.random().toString(16).substr(2, 8);
+let lastDeviceMessageAt = 0;
+let deviceStatusInterval;
+let brokerConnected = false;
+let deviceConnected = false;
 
 // Inicializa o cliente MQTT Paho
 const client = new Paho.MQTT.Client(MQTT_HOST, Number(MQTT_PORT), clientID);
@@ -29,12 +34,12 @@ client.connect({
 
 // Conectado
 function onConnect() {
-    // Encontra o status no HTML
-    const statusDiv = document.getElementById("status");
-    // Muda o texto do status para conectado
-    statusDiv.innerText = "Status: Conectado ao Mosquitto";
-    // Muda o CSS do status para conectado
-    statusDiv.className = "status connected";
+    brokerConnected = true;
+    deviceConnected = false;
+    lastDeviceMessageAt = 0;
+    clearInterval(deviceStatusInterval);
+    deviceStatusInterval = setInterval(checkDeviceStatus, 1000);
+    updateStatus("Status: Protótipo desconectado", "disconnected");
 
     // Assina os tópicos publicados pelo ESP32 após conectar com sucesso 
     client.subscribe(TOPIC_TEMP);
@@ -43,28 +48,53 @@ function onConnect() {
 }
 
 function onFailure(responseObject) {
-    // Encontra o status no HTML
-    const statusDiv = document.getElementById("status");
-    // Muda o texto do status para mensagem de erro
-    statusDiv.innerText = "Status: Falha na conexão (" + responseObject.errorMessage + ")";
-    // Muda o CSS do status para desconectado
-    statusDiv.className = "status disconnected";
+    brokerConnected = false;
+    deviceConnected = false;
+    updateStatus("Status: Mosquitto desconectado (" + responseObject.errorMessage + ")", "disconnected");
 }
 
 function onConnectionLost(responseObject) {
-    // Verifica se houve perda de conexão por um erro
-    if (responseObject.errorCode !== 0) {
-    // Encontra o status no HTML
+    brokerConnected = false;
+    deviceConnected = false;
+    clearInterval(deviceStatusInterval);
+    updateStatus("Status: Mosquitto desconectado", "disconnected");
+}
+
+function updateStatus(text, className) {
     const statusDiv = document.getElementById("status");
-    // Muda o texto do status para desconectado
-    statusDiv.innerText = "Status: Conexão Perdida";
-    // Muda o CSS do status para desconectado
-    statusDiv.className = "status disconnected";
+
+    if (statusDiv) {
+        statusDiv.innerText = text;
+        statusDiv.className = "status " + className;
+    }
+}
+
+function markDeviceAsConnected() {
+    lastDeviceMessageAt = Date.now();
+    deviceConnected = true;
+    updateStatus("Status: Protótipo conectado", "connected");
+}
+
+function checkDeviceStatus() {
+    const deviceTimedOut = lastDeviceMessageAt === 0 ||
+        Date.now() - lastDeviceMessageAt > DEVICE_TIMEOUT_MS;
+
+    if (brokerConnected && deviceConnected && deviceTimedOut) {
+        deviceConnected = false;
+        updateStatus("Status: Protótipo desconectado", "disconnected");
     }
 }
 
 // Processa as mensagens recebidas nos tópicos assinados
 function onMessageArrived(message) {
+    if (message.destinationName !== TOPIC_TEMP &&
+        message.destinationName !== TOPIC_HUM &&
+        message.destinationName !== TOPIC_AIR) {
+        return;
+    }
+
+    markDeviceAsConnected();
+
     // Identifica em qual tópico a mensagem chegou
     const topic = message.destinationName;
     // Capta o valor enviado pelo ESP32
