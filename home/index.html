@@ -1,35 +1,45 @@
 <!DOCTYPE html>
+<!-- Define que o documento utiliza HTML5 -->
+
 <html lang="pt-BR">
   <head>
+    <!-- Configurações da página, fontes, título e arquivos CSS -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MeteoMind | Home</title>
+    <!-- Importação das fontes utilizadas no projeto -->
     <link rel="font" href="https://fonts.googleapis.com" />
     <link rel="font" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Arquivos CSS da página -->
     <link rel="stylesheet" href="./index.css" />
-    <link rel="stylesheet" href="../assets/navbar.css" />
+    <link rel="stylesheet" href="../home/navbar.css" />
   </head>
   <body>
+    <!-- Cabeçalho com a logo e o menu de navegação -->
     <header class="topbar">
       <div class="brand" aria-label="Logo MeteoMind">
         <img class="brand-mark" src="../assets/LogoMeteoMind.png" alt="Logo MeteoMind" />
       </div>
 
       <nav class="main-nav" aria-label="Menu principal">
-        <a href="./index.html" class="active">Home</a>
+        <a href="./index.html"  class="active">Home</a>
         <a href="../sobre/sobre.html">Sobre</a>
         <a href="../dashboard/dash.html">Dashboard</a>
       </nav>
     </header>
 
+    <!-- Conteúdo principal da página -->
     <main class="page-content">
+      <!-- Logo e identificação do projeto -->
       <div class="hero-logo" aria-label="Logo Megamind">
         <div class="logo-ring">
           <img src="../assets/logoMegamind.png" alt="Logo Megamind" />
         </div>
       </div>
 
+       <!-- Nome do projeto e identificação da turma -->
       <div class="title-wrap">
         <h1>Megamind</h1>
         <p>3 ano EM A</p>
@@ -37,9 +47,11 @@
 
       <div class="divider"></div>
 
+      <!-- Seção com os integrantes do grupo -->
       <section class="team-section">
         <h2>INTEGRANTES</h2>
 
+        <!-- Organização das fotos e nomes dos integrantes -->
         <div class="team-grid">
           <figure class="person-card">
             <img src="../assets/pietra.png" alt="Pietra Del Vecchio Pivatti" />
@@ -84,6 +96,7 @@
       </section>
     </main>
 
+    <!-- Rodapé com identificação e direitos do projeto -->
     <footer class="site-footer">
       <div class="footer-brand">MeteoMind</div>
       <div class="footer-divider"></div>
