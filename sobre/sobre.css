@@ -1,8 +1,8 @@
-/*fontes*/
+/* Importa as fontes usadas na pagina. */
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-/* css do geral */
+/* Define as cores, margens e comportamento geral da pagina. */
 body{
     background-color:black;
     margin:0;
@@ -17,6 +17,7 @@ body{
 }
 
 .top {
+    /* Centraliza o titulo e a imagem principal. */
     letter-spacing: 0.1rem;
     color:#C03FFA;
     justify-content: center;
@@ -25,6 +26,7 @@ body{
     font-size: 50px;
 
     .grupoimg{
+        /* Ajusta o tamanho e adiciona sombra na imagem do grupo. */
         display:block;
         height:40rem;
         width:auto;
@@ -34,6 +36,7 @@ body{
 }
 
 .content1 {
+    /* Organiza os textos de objetivo e arquitetura em blocos flexiveis. */
     padding: 20px;
     background-color: #650093;
     display: flex;
@@ -41,6 +44,7 @@ body{
     color: white;
 
     .objetivo {
+        /* Estiliza o bloco que apresenta o objetivo do projeto. */
         flex:1 1 320px;
         width:auto;
         font-size: 20px;
@@ -54,6 +58,7 @@ body{
     }
 
     .divider {
+        /* Estiliza o bloco com arquitetura e link do GitHub. */
         flex:1 1 320px;
         font-size: 20px;
         margin: 20px;
@@ -67,6 +72,7 @@ body{
 }
 
     h2 {
+        /* Padroniza os subtitulos das secoes. */
         text-align: center;
          font-family: "K2D", sans-serif;
          font-size: 36px;
@@ -74,11 +80,13 @@ body{
     }
 
     .content2 {
+        /* Define o fundo da secao de ferramentas. */
         background-color: #5B2A62;
         padding: 20px;
     }
 
     .ferramentas-grid {
+        /* Coloca softwares e hardwares lado a lado quando ha espaco. */
         display: flex;
         flex-wrap:wrap;
         gap: 30px;
@@ -86,6 +94,7 @@ body{
     }
 
     .softwares {
+        /* Controla o tamanho e o alinhamento de cada lista. */
         flex: 1;
         max-width: 600px;
         min-width: min(100%, 320px);
@@ -93,6 +102,7 @@ body{
     }
 
     .softwares ul {
+        /* Organiza os itens das listas em varias linhas. */
         transition: transform 0.3s ease;
         display: flex;
         flex-wrap: wrap;
@@ -107,10 +117,12 @@ body{
     }
 
     .softwares ul li:hover {
+        /* Aumenta o item quando o cursor passa sobre ele. */
         transform: scale(1.1);
     }
 
     @media (max-width: 700px) {
+        /* Empilha as listas de ferramentas em telas pequenas. */
         .ferramentas-grid {
             flex-direction: column;
             align-items: center;
@@ -118,6 +130,7 @@ body{
     }
 
     .fotos ul {
+        /* Organiza as fotos da galeria com espacamento entre elas. */
         display: flex;
         flex-wrap: wrap;
         gap: 150px;
@@ -135,6 +148,7 @@ body{
     }
 
     .fotos {
+        /* Centraliza as legendas das fotos. */
         p{
             text-align: center;
             font-size: 20px;
@@ -142,12 +156,14 @@ body{
     }
 
     @media (min-width: 701px) and (max-width: 1024px) {
+        /* Reduz a imagem principal em telas de tablet. */
         .top .grupoimg {
             height: 25rem;
         }
     }
 
     @media (max-width: 700px) {
+        /* Ajusta fontes, espacamentos e imagens para celulares. */
         .top {
             font-size: 36px;
         }
@@ -187,6 +203,7 @@ body{
     }
 
     .site-footer {
+    /* Monta o rodape em uma linha com espacamento entre os elementos. */
   margin-top: auto;
   width: 100%;
   display: flex;
@@ -199,6 +216,7 @@ body{
 }
 
 .footer-brand {
+    /* Destaca o nome do projeto no rodape. */
   font-family: "Jersey 10", sans-serif;
   font-size: clamp(2rem, 3vw, 3rem);
   line-height: 1;
@@ -207,6 +225,7 @@ body{
 }
 
 .footer-divider {
+    /* Cria as linhas verticais de separacao. */
   width: 2px;
   height: 48px;
   background: rgba(255, 255, 255, 0.7);
@@ -214,6 +233,7 @@ body{
 }
 
 .footer-copy {
+    /* Alinha e suaviza o texto de direitos autorais. */
   margin-left: auto;
   font-size: 0.92rem;
   letter-spacing: 0.02em;
