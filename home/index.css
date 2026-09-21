@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+/* ==================== VARIÁVEIS E CONFIGURAÇÕES GERAIS ==================== */
 :root {
   --bg-black: #030303;
   --purple-1: #d76dff;
@@ -11,6 +12,7 @@
   --text-link: #f5ebff;
 }
 
+/* Configurações básicas para todos os elementos */
 * {
   box-sizing: border-box;
 }
@@ -34,6 +36,8 @@ img {
   max-width: 100%;
 }
 
+
+/* ==================== BARRA DE NAVEGAÇÃO ==================== */
 .topbar {
   display: flex;
   align-items: center;
@@ -46,6 +50,8 @@ img {
   text-align: center;
 }
 
+
+/* ==================== LOGO DA NAVEGAÇÃO ==================== */
 .brand {
   display: flex;
   align-items: center;
@@ -65,6 +71,8 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+
+/* ==================== MENU DE NAVEGAÇÃO ==================== */
 .main-nav {
   display: flex;
   justify-content: center;
@@ -92,6 +100,7 @@ img {
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+/* Efeito dos links quando selecionados ou quando o mouse passa sobre eles */
 .main-nav a:hover,
 .main-nav a:focus-visible,
 .main-nav a.active {
@@ -99,6 +108,7 @@ img {
   transform: translateY(-1px);
 }
 
+/* Linha que indica a página atualmente selecionada */
 .main-nav a.active::after {
   content: "";
   position: absolute;
@@ -110,6 +120,8 @@ img {
   border-radius: 10px;
 }
 
+
+/* ==================== CONTEÚDO PRINCIPAL ==================== */
 .page-content {
   width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
@@ -119,6 +131,8 @@ img {
   align-items: center;
 }
 
+
+/* ==================== LOGO PRINCIPAL ==================== */
 .hero-logo {
   margin-top: 1.5rem;
   display: flex;
@@ -149,6 +163,8 @@ img {
   filter: drop-shadow(0 0 18px rgba(199, 128, 255, 0.35));
 }
 
+
+/* Elementos gráficos adicionais da logo que estão desativados */
 .logo-spark,
 .logo-visor,
 .logo-core,
@@ -156,6 +172,8 @@ img {
   display: none;
 }
 
+
+/* ==================== TÍTULO DO PROJETO ==================== */
 .title-wrap {
   margin-top: 1.5rem;
   text-align: center;
@@ -180,6 +198,8 @@ img {
   letter-spacing: 0.04em;
 }
 
+
+/* Linha divisória entre as seções */
 .divider {
   width: min(100%);
   height: 1px;
@@ -187,6 +207,8 @@ img {
   margin: 2.5rem auto 2.2rem;
 }
 
+
+/* ==================== SEÇÃO DE INTEGRANTES ==================== */
 .team-section {
   width: min(100%, 900px);
   text-align: center;
@@ -201,6 +223,8 @@ img {
   color: #d986ff;
 }
 
+
+/* Organização das fotos dos integrantes em um layout flexível */
 .team-grid {
   display: flex;
   justify-content: center;
@@ -210,6 +234,8 @@ img {
   margin-bottom: 5rem;
 }
 
+
+/* Estilo dos cards individuais dos integrantes */
 .person-card {
   width: 150px;
   margin: 0;
@@ -239,6 +265,8 @@ img {
   text-align: center;
 }
 
+
+/* ==================== RODAPÉ ==================== */
 .site-footer {
   margin-top: auto;
   width: 100%;
@@ -274,6 +302,9 @@ img {
   text-align: right;
 }
 
+
+/* ==================== RESPONSIVIDADE ==================== */
+/* Ajustes para telas médias */
 @media (max-width: 900px) {
   .topbar {
     padding-inline: 1.5rem;
@@ -297,6 +328,8 @@ img {
   }
 }
 
+
+/* Ajustes para tablets e telas menores */
 @media (max-width: 700px) {
   .topbar {
     flex-wrap: wrap;
@@ -367,6 +400,8 @@ img {
   }
 }
 
+
+/* Ajustes específicos para celulares */
 @media (max-width: 480px) {
   .topbar {
     padding: 0.8rem 0.8rem 0.9rem;
