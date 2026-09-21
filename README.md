@@ -5,17 +5,14 @@
  
  
 Descrição
-
 ==========
-<p>
+
 Projeto desenvolvido para a disciplina de Internet das Coisas (IoT), utilizando um ESP32 para coleta de dados ambientais e um Dashboard Web para visualização das informações em tempo real.
 A solução integra sensores físicos, comunicação MQTT, WebSockets e uma interface web responsiva, permitindo acompanhar temperatura, umidade e qualidade do ar enquanto os dados são coletados pelo dispositivo.
  
 Grupo MegaMind- Integrantes
-</p>
-
 ==========
-<p>
+
  
 Beatryz Caroline dos Santos Rodrigues <br>
 Beatriz Santos de Oliveira <br>
@@ -25,8 +22,6 @@ Marcela Pereira da Cruz <br>
  
  
 Arquitetura
-
-</p>
 =======
  
 ┌──────────────────────┐
@@ -79,15 +74,19 @@ Arquitetura
  
  
 Funcionamento
-
 =======
- <p>
+ 
   
 ESP32 → MQTT → Mosquitto → WebSockets → Dashboard
+
 Os dados são publicados a cada 3 segundos nos tópicos:
+
 aulas/professortupi/temperatura
+
 aulas/professortupi/umidade
+
 aulas/professortupi/qualidade_ar
+
 O ESP32 também possui LEDs de alerta para:
 🌡️ Temperatura > 28°C
 💧 Umidade > 56%
@@ -95,10 +94,8 @@ O ESP32 também possui LEDs de alerta para:
  
  
 Tecnologias
- </p>
-
 =======
-<p>
+
  
 * **ESP32** 
 * **DHT11**
@@ -109,5 +106,5 @@ Tecnologias
 * **HTML, CSS, JavaScript**
 * **LocalStorage**
 
-</p>
+
  
