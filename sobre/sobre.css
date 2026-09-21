@@ -2,12 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-:root {
-    --purple-1: #d76dff;
-    --purple-2: #b856ff;
-    --text-link: #f5ebff;
-}
-
 /* css do geral */
 body{
     background-color:black;
@@ -20,80 +14,6 @@ body{
 
 *, *::before, *::after {
     box-sizing:inherit;
-}
-
-.topbar {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:1rem;
-    width:100%;
-    min-height:110px;
-    padding:0.8rem 3.2rem 0.9rem;
-    background:linear-gradient(90deg, var(--purple-2) 0%, var(--purple-1) 100%);
-    box-shadow:inset 0 -1px 0 rgba(255, 255, 255, 0.18);
-    text-align:center;
-}
-
-.brand {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-width:120px;
-    flex-shrink:0;
-}
-
-.brand-mark {
-    display:block;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    object-fit:cover;
-    filter:drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
-    background:rgba(255, 255, 255, 0.08);
-    border:1px solid rgba(255, 255, 255, 0.25);
-}
-
-.main-nav {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:1rem 2.5rem;
-    flex:1;
-    padding-right:2rem;
-}
-
-.main-nav a {
-    position:relative;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--text-link);
-    text-decoration:none;
-    font-family:'Jersey 10', sans-serif;
-    font-size:clamp(2rem, 2.4vw, 3rem);
-    line-height:1;
-    letter-spacing:0.04em;
-    transition:opacity 0.2s ease, transform 0.2s ease;
-}
-
-.main-nav a:hover,
-.main-nav a:focus-visible,
-.main-nav a.active {
-    opacity:1;
-    transform:translateY(-1px);
-}
-
-.main-nav a.active::after {
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:-0.45rem;
-    height:2px;
-    background:rgba(255, 255, 255, 0.8);
-    border-radius:10px;
 }
 
 .top {
@@ -228,32 +148,6 @@ body{
     }
 
     @media (max-width: 700px) {
-        .topbar {
-            min-height:0;
-            padding:0.7rem 1rem 0.8rem;
-            flex-wrap:wrap;
-        }
-
-        .brand {
-            min-width:auto;
-        }
-
-        .brand-mark {
-            width:72px;
-            height:72px;
-        }
-
-        .main-nav {
-            width:100%;
-            gap:1.3rem;
-            padding-right:0;
-            justify-content:space-between;
-        }
-
-        .main-nav a {
-            font-size:1.7rem;
-        }
-
         .top {
             font-size: 36px;
         }
