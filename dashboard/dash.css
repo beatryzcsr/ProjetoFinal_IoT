@@ -93,11 +93,17 @@
 
     .card {
       background: var(--purple-3);
-      border-radius: 8px;
+      border-radius: 12px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      padding: 20px;
-      width: 200px;
+      padding: 18px 18px 20px;
+      width: 240px;
+      min-height: 230px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
     }
 
     .card-purple {
@@ -105,31 +111,72 @@
     }
 
     .card h3 {
-      margin-top: 0;
+      margin: 0 0 0.8rem;
       color: var(--purple-4);
+      font-family: "Jersey 10", sans-serif;
+      font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-align: center;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .card .img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60px;
+      width: 100%;
+    }
+
+    .card .img img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
     }
 
     .card .value {
-      font-size: 2.2em;
-      font-weight: bold;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.15rem;
+      font-family: "Jersey 10", sans-serif;
+      font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+      font-weight: 400;
       color: #007bff;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-align: center;
+      margin-top: 0.7rem;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
     .card .unit {
-      font-size: 0.5em;
+      font-size: 0.52em;
       color: var(--text-dark);
+      line-height: 1;
+      display: inline-block;
+      transform: translateY(-0.18em);
+      white-space: nowrap;
     }
 
     .topbar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 1rem;
       width: 100%;
       padding: 0.8rem 2rem 0.9rem;
       background: linear-gradient(90deg, var(--purple-2) 0%, var(--purple-1) 100%);
       box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.18);
       position: relative;
+      text-align: center;
+      min-height: 110px;
     }
 
     .brand {
@@ -137,6 +184,8 @@
       align-items: center;
       justify-content: center;
       min-width: 120px;
+      flex-shrink: 0;
+      text-align: center;
     }
 
     .brand-mark {
@@ -154,19 +203,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
       flex-wrap: wrap;
       gap: 1rem 2.5rem;
       flex: 1;
       padding-right: 2rem;
+      min-height: 50px;
     }
 
     .main-nav a {
       position: relative;
       color: var(--text);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
-      letter-spacing: 0.02em;
+      font-family: "Jersey 10", sans-serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 2.4vw, 3rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
 

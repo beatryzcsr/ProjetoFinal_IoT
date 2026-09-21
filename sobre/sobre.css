@@ -1,0 +1,328 @@
+/*fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --purple-1: #d76dff;
+    --purple-2: #b856ff;
+    --text-link: #f5ebff;
+}
+
+/* css do geral */
+body{
+    background-color:black;
+    margin:0;
+    color:white;
+    overflow-x:hidden;
+    box-sizing:border-box;
+}
+
+
+*, *::before, *::after {
+    box-sizing:inherit;
+}
+
+.topbar {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    width:100%;
+    min-height:110px;
+    padding:0.8rem 3.2rem 0.9rem;
+    background:linear-gradient(90deg, var(--purple-2) 0%, var(--purple-1) 100%);
+    box-shadow:inset 0 -1px 0 rgba(255, 255, 255, 0.18);
+    text-align:center;
+}
+
+.brand {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:120px;
+    flex-shrink:0;
+}
+
+.brand-mark {
+    display:block;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    filter:drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+    background:rgba(255, 255, 255, 0.08);
+    border:1px solid rgba(255, 255, 255, 0.25);
+}
+
+.main-nav {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1rem 2.5rem;
+    flex:1;
+    padding-right:2rem;
+}
+
+.main-nav a {
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-link);
+    text-decoration:none;
+    font-family:'Jersey 10', sans-serif;
+    font-size:clamp(2rem, 2.4vw, 3rem);
+    line-height:1;
+    letter-spacing:0.04em;
+    transition:opacity 0.2s ease, transform 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.main-nav a.active {
+    opacity:1;
+    transform:translateY(-1px);
+}
+
+.main-nav a.active::after {
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-0.45rem;
+    height:2px;
+    background:rgba(255, 255, 255, 0.8);
+    border-radius:10px;
+}
+
+.top {
+    letter-spacing: 0.1rem;
+    color:#C03FFA;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Jersey 10';
+    font-size: 50px;
+
+    .grupoimg{
+        display:block;
+        height:40rem;
+        width:auto;
+        margin:0 auto;
+        filter: drop-shadow(30px 20px 40px #be3ffe80);
+    }
+}
+
+.content1 {
+    padding: 20px;
+    background-color: #650093;
+    display: flex;
+    flex-wrap:wrap;
+    color: white;
+
+    .objetivo {
+        flex:1 1 320px;
+        width:auto;
+        font-size: 20px;
+        margin: 20px;
+        padding:10px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid #BE3FFE;
+        border-radius: 10px;
+    }
+
+    .divider {
+        flex:1 1 320px;
+        font-size: 20px;
+        margin: 20px;
+        padding:10px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid #BE3FFE;
+        border-radius: 10px;
+    }
+}
+
+    h2 {
+        text-align: center;
+         font-family: "K2D", sans-serif;
+         font-size: 36px;
+         color:#BE3FFE;
+    }
+
+    .content2 {
+        background-color: #5B2A62;
+        padding: 20px;
+    }
+
+    .ferramentas-grid {
+        display: flex;
+        flex-wrap:wrap;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .softwares {
+        flex: 1;
+        max-width: 600px;
+        min-width: min(100%, 320px);
+        text-align: center;
+    }
+
+    .softwares ul {
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 0;
+        list-style: none;
+
+        img{
+            border-radius: 90px;
+        }
+    }
+
+    .softwares ul li:hover {
+        transform: scale(1.1);
+    }
+
+    @media (max-width: 700px) {
+        .ferramentas-grid {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .fotos ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 150px;
+        justify-content: center;
+        padding: 0;
+        list-style: none;
+
+        img{
+            display:block;
+            width:min(100%, 400px);
+            height:350px;
+            object-fit:cover;
+        }
+     
+    }
+
+    .fotos {
+        p{
+            text-align: center;
+            font-size: 20px;
+        }
+    }
+
+    @media (min-width: 701px) and (max-width: 1024px) {
+        .top .grupoimg {
+            height: 25rem;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .topbar {
+            min-height:0;
+            padding:0.7rem 1rem 0.8rem;
+            flex-wrap:wrap;
+        }
+
+        .brand {
+            min-width:auto;
+        }
+
+        .brand-mark {
+            width:72px;
+            height:72px;
+        }
+
+        .main-nav {
+            width:100%;
+            gap:1.3rem;
+            padding-right:0;
+            justify-content:space-between;
+        }
+
+        .main-nav a {
+            font-size:1.7rem;
+        }
+
+        .top {
+            font-size: 36px;
+        }
+
+        .top .grupoimg {
+            width:min(90%, 640px);
+            height:auto;
+        }
+
+        .content1,
+        .content2 {
+            padding: 12px;
+        }
+
+        .objetivo,
+        .divider {
+            margin: 8px 0;
+            padding: 12px;
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        .softwares ul {
+            gap: 12px;
+        }
+
+        .fotos ul {
+            gap: 24px;
+        }
+
+        .fotos ul img {
+            width:min(100%, 360px);
+            height:min(67.5vw, 270px);
+        }
+    }
+
+    .site-footer {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 2.2rem;
+  background: linear-gradient(90deg, #c76cff 0%, #c356ff 100%);
+  color: #fff;
+}
+
+.footer-brand {
+  font-family: "Jersey 10", sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  margin-left: 0.8rem;
+}
+
+.footer-divider {
+  width: 2px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.7);
+  margin: 0 1rem;
+}
+
+.footer-copy {
+  margin-left: auto;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+  text-align: right;
+}
